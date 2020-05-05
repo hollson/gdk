@@ -1,4 +1,4 @@
-module github.com/hollson/codex
+module github.com/hollson/gox
 
 go 1.13
 
