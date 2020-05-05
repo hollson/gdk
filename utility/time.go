@@ -1,4 +1,4 @@
-package utilx
+package utility
 
 import (
 	"fmt"

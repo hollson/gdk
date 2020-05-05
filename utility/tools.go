@@ -1,4 +1,4 @@
-package utilx
+package utility
 
 import (
 	"fmt"
@@ -7,25 +7,6 @@ import (
 	"strings"
 )
 
-// 切片是否包含目标元素
-func ContainInt(one int, all ...int) bool {
-	for _, v := range all {
-		if v == one {
-			return true
-		}
-	}
-	return false
-}
-
-// 切片是否包含目标元素
-func ContainStr(one string, all ...string) bool {
-	for _, v := range all {
-		if one == v {
-			return true
-		}
-	}
-	return false
-}
 
 // 切片去重
 func Duplicate(a interface{}) (ret []interface{}) {

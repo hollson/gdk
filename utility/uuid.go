@@ -7,7 +7,7 @@
 // UUID: (Universally Unique Identifier) 通用唯一标识符
 //-------------------------------------------------------------------------------------
 
-package utilx
+package utility
 
 import (
 	"crypto/md5"

@@ -7,7 +7,7 @@
 // Here's the code description...
 //-------------------------------------------------------------------------------------
 
-package utilx
+package utility
 
 import (
 	"math/rand"
