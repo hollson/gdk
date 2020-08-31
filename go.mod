@@ -1,4 +1,4 @@
-module github.com/hollson/gox
+module github.com/hollson/goox
 
 go 1.13
 
