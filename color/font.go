@@ -8,6 +8,8 @@ import "fmt"
 
 type FontColor int
 
+
+
 const (
 	Black  FontColor = iota + 30 // 黑色
 	Red                          // 红色
@@ -48,9 +50,10 @@ func ForeBack(txt string, fore, back FontColor, style ...Style) string {
 	return fmt.Sprintf("\033[%d;%dm%s\033[0m", fore, back+10, txt)
 }
 
-func main() {
-	fmt.Println(Fore("字体颜色", Purple))
-	fmt.Println(Back("背景颜色", Green))
-	fmt.Println(ForeBack("字体和背景", Blue, Yellow))
-	fmt.Println(ForeBack("字体和背景&样式", Red, Cyan, Underline))
-}
+// 使用实例：
+// func main() {
+// 	fmt.Println(Fore("字体颜色", Purple))
+// 	fmt.Println(Back("背景颜色", Green))
+// 	fmt.Println(ForeBack("字体和背景", Blue, Yellow))
+// 	fmt.Println(ForeBack("字体和背景&样式", Red, Cyan, Underline))
+// }
