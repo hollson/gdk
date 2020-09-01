@@ -50,7 +50,7 @@ func ForeBack(txt string, fore, back FontColor, style ...Style) string {
 	return fmt.Sprintf("\033[%d;%dm%s\033[0m", fore, back+10, txt)
 }
 
-// 使用实例：
+// 使用示例：
 // func main() {
 // 	fmt.Println(Fore("字体颜色", Purple))
 // 	fmt.Println(Back("背景颜色", Green))
