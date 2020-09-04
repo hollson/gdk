@@ -42,7 +42,10 @@ const (
 )
 
 // 设置字体颜色
-func Fore(txt string, color Color) string {
+func Fore(txt string, color Color, style ...Style) string {
+	if len(style) > 0 {
+		return fmt.Sprintf("\033[%d;%dm%s\033[0m", style[0], style, color, txt)
+	}
 	return fmt.Sprintf("\x1b[0;%dm%s\x1b[0m", color, txt)
 }
 
