@@ -25,6 +25,10 @@ const (
 	EB                         // 1 << (10*6)
 )
 
+func (b Size) Int() int{
+	return int(b)
+}
+
 func (b Size) String() string {
 	switch {
 	case b >= EB:
