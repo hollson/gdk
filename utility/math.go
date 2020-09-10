@@ -10,7 +10,9 @@
 package utility
 
 import (
+	"fmt"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -19,6 +21,12 @@ func RandIntn(n int) int {
 	rand.Seed(time.Now().UnixNano()) // UnixNano()表示纳秒
 	a := rand.Intn(n)               // 0-n之间的随机整数。 (包含0，不包含n。相当于对10求余)
 	return a
+}
+
+// 保留两位
+func Decimal(value float64) float64 {
+	value, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)
+	return value
 }
 
 //https://blog.csdn.net/zhizhengguan/article/details/93380945
