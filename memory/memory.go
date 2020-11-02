@@ -25,8 +25,8 @@ const (
 	EB                         // 1 << (10*6)
 )
 
-func (b Size) Int() int{
-	return int(b)
+func (b Size) Int64() int64{
+	return int64(b)
 }
 
 func (b Size) String() string {

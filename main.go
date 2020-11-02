@@ -31,7 +31,7 @@ func Something() {
 	fmt.Println(Wdest, num) //num=14
 
 	//func DecodeString(s string) ([]byte, error)  解码16进制的字符串为byte类型
-	decodeStr, _ := hex.DecodeString(encodeStr)
+  	decodeStr, _ := hex.DecodeString(encodeStr)
 	fmt.Println(string(decodeStr))
 
 	//func DecodedLen(x int) int  x个byte解码后的长度，一般是x/2
