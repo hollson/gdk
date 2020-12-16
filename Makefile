@@ -1,5 +1,5 @@
 # App基本信息
-AppName="gooz"	#应用名称
+AppName="goox"	#应用名称
 AppPort="8080"		#服务端口
 Version="v1.0.1"	#版本号
 Cgo=1				#是否开启Cgo，0：不开启，1：开启

@@ -8,7 +8,7 @@
 // 参考： http://www.kammerl.de/ascii/AsciiSignature.php
 //-------------------------------------------------------------------------------------
 
-package utility
+package util
 
 const CNM = `
    ┏┓   ┏┓

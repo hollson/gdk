@@ -2,9 +2,9 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
-package value
+package zero
 
-// 默认全局变量，用于快捷变量取址
+// 变量零值，用于快捷变量取址
 var (
 	True                = true
 	False               = false

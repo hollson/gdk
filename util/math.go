@@ -7,7 +7,7 @@
 // Here's the code description...
 //-------------------------------------------------------------------------------------
 
-package utility
+package util
 
 import (
 	"fmt"
