@@ -23,3 +23,11 @@ func TestSQLIn(t *testing.T) {
     s = SQLInString(b...)
     fmt.Printf("「%s」\n", s)
 }
+
+func TestJsonFormat(t *testing.T) {
+    person := struct {
+        Name string
+        Age  int
+    }{"tom", 22}
+    fmt.Println(JsonFormat(person))
+}
