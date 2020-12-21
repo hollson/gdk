@@ -10,7 +10,7 @@ import (
 )
 
 // 将结构体o以json的格式输出
-//  实现了类strings.String接口
+//  参考fmt.Stringer接口
 func JsonFormat(o interface{}) string {
     dump, err := json.MarshalIndent(o, "", "\t")
     if err != nil {
