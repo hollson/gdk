@@ -2,7 +2,7 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
-package host
+package net
 
 import (
     "fmt"
@@ -10,5 +10,6 @@ import (
 )
 
 func TestLocalIP(t *testing.T) {
-   fmt.Println( LocalIP())
+	fmt.Println(IP())
+   // fmt.Println( LocalIP())
 }

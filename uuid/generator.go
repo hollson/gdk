@@ -25,7 +25,6 @@ type hwAddrFunc func() (net.HardwareAddr, error)
 
 var (
     global = newRFC4122Generator()
-
     posixUID = uint32(os.Getuid())
     posixGID = uint32(os.Getgid())
 )

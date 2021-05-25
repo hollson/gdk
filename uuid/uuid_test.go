@@ -34,7 +34,6 @@ func TestUUID(t *testing.T) {
 
     fmt.Println()
     for i := 0; i < 10; i++ {
-        // v4, _ := NewV1()
         fmt.Println(New())
     }
 }

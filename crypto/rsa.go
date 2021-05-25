@@ -1,6 +1,6 @@
 /**
  * @Author: sybs
- * @Description:RSA非对称加密算法，包含签名、验签、加密、解密
+ * @Desc:RSA非对称加密算法，包含签名、验签、加密、解密
  * @File:  rsa
  * @Version: 1.0.0
  * @Date: 2019-11-26 01:27
