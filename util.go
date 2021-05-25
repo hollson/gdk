@@ -4,7 +4,7 @@
 
 package goox
 
-// 三目运算
+// 三目运算(ternary)
 func T3(b bool, x, y interface{}) interface{} {
 	if b {
 		return x

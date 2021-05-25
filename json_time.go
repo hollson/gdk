@@ -2,6 +2,7 @@ package goox
 
 import "time"
 
+// 自定义Json成员类型
 type JsonTime time.Time
 
 func (p JsonTime) MarshalJSON() ([]byte, error) {
