@@ -10,35 +10,58 @@ import (
 )
 
 func JoinInt32(arr []int32, splitter ...string) string {
+	if len(arr) == 0 {
+		return ""
+	}
+	if len(splitter) == 0 {
+		splitter = []string{","}
+	}
 	var b strings.Builder
 	length := len(arr)
 	b.Grow(length) // 预分配容量
 	for i := 0; i < length; i++ {
 		b.WriteString(strconv.Itoa(int(arr[i])))
-		b.WriteString(splitter[0])
+		if i < length-1 {
+			b.WriteString(splitter[0])
+		}
 	}
 	return b.String()
 }
 
 func JoinInt64(arr []int64, splitter ...string) string {
+	if len(arr) == 0 {
+		return ""
+	}
+	if len(splitter) == 0 {
+		splitter = []string{","}
+	}
 	var b strings.Builder
 	length := len(arr)
 	b.Grow(length) // 预分配容量
 	for i := 0; i < length; i++ {
 		b.WriteString(strconv.Itoa(int(arr[i])))
-		b.WriteString(splitter[0])
+		if i < length-1 {
+			b.WriteString(splitter[0])
+		}
 	}
 	return b.String()
 }
 
-
 func JoinInt(arr []int32, splitter ...string) string {
+	if len(arr) == 0 {
+		return ""
+	}
+	if len(splitter) == 0 {
+		splitter = []string{","}
+	}
 	var b strings.Builder
 	length := len(arr)
 	b.Grow(length) // 预分配容量
 	for i := 0; i < length; i++ {
 		b.WriteString(strconv.Itoa(int(arr[i])))
-		b.WriteString(splitter[0])
+		if i < length-1 {
+			b.WriteString(splitter[0])
+		}
 	}
 	return b.String()
 }
