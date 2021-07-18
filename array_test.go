@@ -9,6 +9,15 @@ import (
 	"testing"
 )
 
+func TestConvert2AnyTypeSlice(t *testing.T) {
+	var arr = []int{1, 2, 3}
+	fmt.Println(IsSlice(arr))
+	fmt.Println(Convert2AnyTypeSlice(arr))
+	fmt.Println(Convert2AnyTypeSlice("abc"))
+	fmt.Println(Convert2AnyTypeSlice(func() {}))
+	fmt.Println(Convert2AnyTypeSlice(map[int]string{}))
+}
+
 func TestContains(t *testing.T) {
 	fmt.Println(ContainByte('a', 97, 98, 99))
 	fmt.Println(ContainInt(1, 1, 2, 3))
@@ -40,8 +49,12 @@ func TestContain(t *testing.T) {
 	fmt.Println(Contain(us[0], us))
 }
 
-func TestAnySlice(t *testing.T) {
-	var arr = []int{1, 2, 3}
-	fmt.Println(IsSlice(arr))
-	fmt.Println(ObjectSlice(arr))
+func TestContainMust(t *testing.T) {
+	fmt.Println(ContainMust(1, []int{1, 2, 3}))
+	fmt.Println(ContainMust(1, "abc"))
 }
+
+// func TestDistinct(t *testing.T) {
+// 	var arr = []int{1, 2, 2, 3, 3, 3}
+// 	fmt.Println(Distinct(arr))
+// }

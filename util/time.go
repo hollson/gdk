@@ -1,7 +1,6 @@
 package util
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -29,13 +28,19 @@ func RetroWeekN(n time.Weekday) time.Time {
 	return time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, time.Local).AddDate(0, 0, offset)
 }
 
-// 构造时间差
-func Duration(hours int) time.Duration {
-	ts, _ := time.ParseDuration(fmt.Sprintf("%dh", hours))
-	return ts
-}
 
 // 获取年月日部分
 func TimeOfYMD(tm time.Time) time.Time {
 	return time.Date(tm.Year(), tm.Month(), tm.Day(), 0, 0, 0, 0, time.Local)
 }
+
+// 本周一
+func ThisMonday() time.Time {
+	now := time.Now()
+	offset := int(time.Monday - now.Weekday())
+	if offset > 0 {
+		offset = -6
+	}
+	return time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, time.Local).AddDate(0, 0, offset)
+}
+

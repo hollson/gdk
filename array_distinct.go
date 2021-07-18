@@ -5,7 +5,7 @@
 package goox
 
 import (
-	"reflect"
+
 )
 
 // 目标元素tar是否包含在container集合中
@@ -77,15 +77,42 @@ func DistinctStrings(tar string, container ...string) bool {
 	}
 	return false
 }
+//
+// // 切片去重 Distinct
+// func Distinct(a interface{}) ([]interface{}, error) {
+// 	// arr, err := Convert2AnyTypeSlice(a)
+// 	if err != nil {
+//
+// 	}
+// 	var ret []interface{}
+//
+// 	va := reflect.ValueOf(a)
+// 	for i := 0; i < va.Len(); i++ {
+// 		if i > 0 && reflect.DeepEqual(va.Index(i-1).Interface(), va.Index(i).Interface()) {
+// 			continue
+// 		}
+// 		ret = append(ret, va.Index(i))
+// 	}
+// 	return ret
+// }
 
-// 切片去重 Distinct
-func Distinct(a interface{}) (ret []interface{}) {
-	va := reflect.ValueOf(a)
-	for i := 0; i < va.Len(); i++ {
-		if i > 0 && reflect.DeepEqual(va.Index(i-1).Interface(), va.Index(i).Interface()) {
-			continue
+
+func distinctStringArray(arr []string) (newArr []string) {
+	newArr = make([]string, 0)
+	for i := 0; i < len(arr); i++ {
+		repeat := false
+		for j := i + 1; j < len(arr); j++ {
+			if arr[i] == arr[j] {
+				repeat = true
+				break
+			}
 		}
-		ret = append(ret, va.Index(i))
+		if !repeat {
+			newArr = append(newArr, arr[i])
+		}
 	}
-	return ret
+	return newArr
 }
+
+
+//https://blog.csdn.net/qq_27068845/article/details/77407358

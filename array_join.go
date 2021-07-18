@@ -12,7 +12,29 @@ import (
 
 // 将切片拼接成以splitter(默认逗号)分割等字符串
 //  如:
-func JoinInt(arr []int32, splitter ...string) string {
+func JoinByte(arr []byte, splitter ...string) string {
+	if len(arr) == 0 {
+		return ""
+	}
+	if len(splitter) == 0 {
+		splitter = []string{","}
+	}
+
+	var b strings.Builder
+	length := len(arr)
+	b.Grow(length) // 预分配容量
+	for i := 0; i < length; i++ {
+		b.WriteString(strconv.Itoa(int(arr[i])))
+		if i < length-1 {
+			b.WriteString(splitter[0])
+		}
+	}
+	return b.String()
+}
+
+// 将切片拼接成以splitter(默认逗号)分割等字符串
+//  如:
+func JoinInt(arr []int, splitter ...string) string {
 	if len(arr) == 0 {
 		return ""
 	}

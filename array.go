@@ -5,6 +5,8 @@
 package goox
 
 import (
+	"errors"
+	"fmt"
 	"reflect"
 )
 
@@ -20,10 +22,10 @@ func IsSlice(o interface{}) (val reflect.Value, ok bool) {
 
 // 将对象切片转换为接口切片
 //  如: AnyTypeSlice([]int{1,2,3}) => []interface{}{1,2,3}
-func ObjectSlice(slice interface{}) ([]interface{}, bool) {
+func Convert2AnyTypeSlice(slice interface{}) ([]interface{}, error) {
 	val, ok := IsSlice(slice)
 	if !ok {
-		return nil, false
+		return nil, errors.New(fmt.Sprintf("%#v is not a slice type", reflect.ValueOf(slice)))
 	}
 
 	sliceLen := val.Len()
@@ -31,5 +33,7 @@ func ObjectSlice(slice interface{}) ([]interface{}, bool) {
 	for i := 0; i < sliceLen; i++ {
 		out[i] = val.Index(i).Interface()
 	}
-	return out, true
+	return out, nil
 }
+
+

@@ -85,7 +85,7 @@ func ContainString(tar string, container ...string) bool {
 //     Contain(&u,[]*User{&u1,&u2,&u3})
 //     Contain(1.0, []interface{}{1.0,"a",'b'})
 func Contain(tar interface{}, container interface{}) (bool, error) {
-	if arr, is := ObjectSlice(container); is {
+	if arr, err := Convert2AnyTypeSlice(container); err!=nil {
 		return contain(tar, arr), nil
 	}
 	return false, errors.New("container is not a slice type")
