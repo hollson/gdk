@@ -49,5 +49,5 @@ func TestJsonDump(t *testing.T) {
 }
 
 func TestPrettyJsonDump(t *testing.T) {
-	fmt.Println(PrettyJson(obj))
+	fmt.Println(JsonPretty(obj))
 }
