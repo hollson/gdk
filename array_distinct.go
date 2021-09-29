@@ -4,10 +4,6 @@
 
 package goox
 
-import (
-
-)
-
 // 目标元素tar是否包含在container集合中
 func DistinctBytes(tar byte, container ...byte) bool {
 	for _, v := range container {
@@ -77,6 +73,7 @@ func DistinctStrings(tar string, container ...string) bool {
 	}
 	return false
 }
+
 //
 // // 切片去重 Distinct
 // func Distinct(a interface{}) ([]interface{}, error) {
@@ -96,7 +93,6 @@ func DistinctStrings(tar string, container ...string) bool {
 // 	return ret
 // }
 
-
 func distinctStringArray(arr []string) (newArr []string) {
 	newArr = make([]string, 0)
 	for i := 0; i < len(arr); i++ {
@@ -114,5 +110,4 @@ func distinctStringArray(arr []string) (newArr []string) {
 	return newArr
 }
 
-
-//https://blog.csdn.net/qq_27068845/article/details/77407358
+// https://blog.csdn.net/qq_27068845/article/details/77407358

@@ -40,7 +40,7 @@ type Optionals struct {
 }
 
 var obj = Optionals{
-	Io:999,
+	Io: 999,
 	Dt: JsonTime(time.Now()),
 }
 

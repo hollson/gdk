@@ -46,4 +46,3 @@ const (
 	Concealed                 // 8: 隐藏/暗格
 	CrossedOut                // 9: 删除
 )
-

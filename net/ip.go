@@ -6,12 +6,18 @@ package net
 
 import (
 	"errors"
+	"fmt"
+	"io"
 	"net"
+	"net/http"
+	"os/exec"
 	"strings"
+	"time"
 )
 
 // https://blog.csdn.net/chinawangfei/article/details/89965515
-func IP() (net.IP, error) {
+// 局域网IP
+func LocalIP() (net.IP, error) {
 	as, err := net.InterfaceAddrs()
 	if err != nil {
 		return nil, err
@@ -25,6 +31,38 @@ func IP() (net.IP, error) {
 	}
 	return nil, errors.New("not found available ip")
 }
+
+// 公网IP
+func PubIp() string {
+	loc, zone := time.Now().Zone()
+	if zone/3600 == 8 {
+		fmt.Println(loc)
+		// http.Get("")
+	}
+	fmt.Println(exec.Command("curl","--connect-timeout 1 -m 3 ip.cip.cc").String())
+
+	pong, err := http.Get("http://ip.cip.cc/")
+	if err != nil {
+		fmt.Println("===>", err.Error())
+		return ""
+	}
+	data, err := io.ReadAll(pong.Body)
+	if err != nil {
+		fmt.Println("===>", err.Error())
+		return ""
+	}
+	fmt.Println(string(data))
+	return string(data)
+}
+
+// 公网IP
+// curl --connect-timeout 1 -m 3 ifconfig.me
+// curl icanhazip.com	美国
+// curl ip.sb		美国
+// curl ifconfig.io	美国
+// curl httpbin.org/ip
+// curl cip.cc     汕头
+// curl --connect-timeout 1 -m 3 ip.cip.cc
 
 // 当前主机的局域网IP
 func IPByDNS() string {

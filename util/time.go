@@ -28,7 +28,6 @@ func RetroWeekN(n time.Weekday) time.Time {
 	return time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, time.Local).AddDate(0, 0, offset)
 }
 
-
 // 获取年月日部分
 func TimeOfYMD(tm time.Time) time.Time {
 	return time.Date(tm.Year(), tm.Month(), tm.Day(), 0, 0, 0, 0, time.Local)
@@ -43,4 +42,3 @@ func ThisMonday() time.Time {
 	}
 	return time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, time.Local).AddDate(0, 0, offset)
 }
-

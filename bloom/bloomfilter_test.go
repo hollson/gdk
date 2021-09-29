@@ -1,11 +1,11 @@
-
 package bloom
 
 import (
 	"fmt"
-	"github.com/willf/bitset"
 	"math/rand"
 	"testing"
+
+	"github.com/willf/bitset"
 )
 
 func TestBloomx(t *testing.T) {
@@ -16,7 +16,7 @@ func TestBloomx(t *testing.T) {
 func Foo() {
 	var b bitset.BitSet // 定义一个BitSet对象
 
-	b.Set(1).Set(2).Set(3) //添加3个元素
+	b.Set(1).Set(2).Set(3) // 添加3个元素
 	if b.Test(2) {
 		fmt.Println("2已经存在")
 	}
