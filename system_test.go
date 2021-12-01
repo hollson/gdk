@@ -13,3 +13,4 @@ func TestT3(t *testing.T) {
 	max := T3(a > b, a, b).(int)
 	println(max)
 }
+

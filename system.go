@@ -30,3 +30,5 @@ func ShortSnow() string {
 	}
 	return fmt.Sprintf("%X", sid)
 }
+
+
