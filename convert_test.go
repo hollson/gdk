@@ -6,8 +6,10 @@ package goox
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 	"testing"
+	"unsafe"
 )
 
 func TestToInt64(t *testing.T) {
@@ -26,4 +28,35 @@ func TestToBool(t *testing.T) {
 	fmt.Println(ToBool("True"))
 	fmt.Println(ToBool("F"))
 	fmt.Println(ToBool("TRUE"))
+	fmt.Println(ToBool("NULL"))
+	fmt.Println(ToBool("nil"))
+}
+
+func TestB2i(t *testing.T) {
+	fmt.Println(I2Bytes(math.MaxUint64))
+	fmt.Println(I2Bytes(256))
+	fmt.Println(I2Bytes(256 * 256)) // 相当于256进制
+
+	fmt.Println(Bytes2I([8]byte{6: 4}))
+	fmt.Println(Bytes2IAuto([]byte{6: 4}))
+}
+
+func slice2arrayWithHack() {
+	var b = []int{11, 12, 13}
+	var a = *(*[3]int)(unsafe.Pointer(&b[0]))
+	a[1] += 10
+	fmt.Printf("%v\n", b) // [11 12 13]
+}
+
+func TestByte8(t *testing.T) {
+	ExampleByte8()
+}
+
+func ExampleByte8() {
+	fmt.Println(Byte8([]byte{'a', 'b', 'c'}))
+	fmt.Println(Byte8([]byte{1, 2, 3, 4, 5, 6, 7, 8, 9}))
+
+	// out:
+	// [97 98 99 0 0 0 0 0]
+	// [1 2 3 4 5 6 7 8]
 }
