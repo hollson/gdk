@@ -1,8 +1,7 @@
 package bloom
 
 import (
-	// "gdk/bloom/bitset"
-	"github.com/bits-and-blooms/bitset"
+	"github.com/hollson/gdk/bitset"
 )
 
 const DEFAULT_SIZE = 2 << 24
