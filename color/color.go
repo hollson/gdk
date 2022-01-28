@@ -4,7 +4,7 @@
 
 package color
 
-// 颜色
+// Color 颜色
 type Color int
 
 // 前景色
@@ -31,7 +31,7 @@ const (
 	BgWhite                     // 47: 白色
 )
 
-// 样式
+// Style 样式
 type Style int
 
 const (

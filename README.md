@@ -1,2 +1,3 @@
-[TOC]
-# Golang软件开发工具包(Golang Development Kit)
+# GDK(Golang Development Kit)
+Golang软件开发工具包
+

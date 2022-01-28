@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"math/rand"
 	"testing"
-
-	"github.com/willf/bitset"
 )
 
 func TestBloomx(t *testing.T) {
