@@ -4,6 +4,7 @@ import (
 	"github.com/hollson/gdk/bitset"
 )
 
+// https://github.com/bits-and-blooms/bloom/blob/master/bloom.go
 const DEFAULT_SIZE = 2 << 24
 
 var seeds = []uint{7, 11, 13, 31, 37, 61}
