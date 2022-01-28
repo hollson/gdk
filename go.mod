@@ -1,6 +1,3 @@
-module github.com/hollson/goox
+module github.com/hollson/gdk
 
-go 1.16
-
-require github.com/willf/bitset v1.1.10
-
+go 1.17

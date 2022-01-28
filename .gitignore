@@ -7,7 +7,7 @@
 *.so
 *.dylib
 *-server
-goox
+gdk
 
 # Test binary, build with `go test -c`
 *.test

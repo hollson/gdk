@@ -1,9 +1,2 @@
 [TOC]
-
-# 算法类
-
-- [雪花算法](algorithm/snowflake.go)
-
-# 代码设计
-
-- [错误重试](algorithm/retry.go)
+# Golang软件开发工具包(Golang Development Kit)

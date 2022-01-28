@@ -1,4 +1,4 @@
-package goox
+package gdk
 
 import "time"
 

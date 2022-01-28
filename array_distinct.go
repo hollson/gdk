@@ -2,7 +2,7 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
-package goox
+package gdk
 
 // 目标元素tar是否包含在container集合中
 func DistinctBytes(tar byte, container ...byte) bool {

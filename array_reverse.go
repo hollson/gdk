@@ -2,7 +2,7 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
-package goox
+package gdk
 
 // 倒序翻转(byte), 如:[9,5,2,7] => [7,2,5,9]
 func ReverseBytes(arr ...int) {
