@@ -8,13 +8,13 @@ import (
 	"fmt"
 )
 
-// ByteSize 字节大小
+// Size 字节大小
 //  Reference：https://golang.org/doc/effective_go#constants
-type ByteSize float64
+type Size float64
 
 const (
-	_           = iota
-	KB ByteSize = 1 << (10 * iota)
+	_       = iota
+	KB Size = 1 << (10 * iota)
 	MB
 	GB
 	TB
@@ -24,7 +24,7 @@ const (
 	YB
 )
 
-func (b ByteSize) String() string {
+func (b Size) String() string {
 	switch {
 	case b >= YB:
 		return fmt.Sprintf("%.2fYB", b/YB)

@@ -10,12 +10,12 @@ import (
 )
 
 func TestStrings(t *testing.T) {
-	fmt.Println((ByteSize(85509571)).String())
+	fmt.Println((Size(85509571)).String())
 	fmt.Println((MB * 32).String())
 	fmt.Println((MB * 1024).String())
 	fmt.Println((MB * 1025).String())
 	fmt.Println((GB * 32).String())
 	fmt.Println((GB * 2*1024*1024).String())
 	fmt.Println((EB * 64).String())
-	fmt.Println(ByteSize(33))
+	fmt.Println(Size(33))
 }
