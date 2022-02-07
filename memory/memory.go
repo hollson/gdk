@@ -2,20 +2,18 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
-//
-package gdk
+package memory
 
 import (
 	"fmt"
 )
 
-// 字节大小
-//
-// 参考：https://golang.org/doc/effective_go#constants
+// ByteSize 字节大小
+//  Reference：https://golang.org/doc/effective_go#constants
 type ByteSize float64
 
 const (
-	_           = iota // ignore first value by assigning to blank identifier
+	_           = iota
 	KB ByteSize = 1 << (10 * iota)
 	MB
 	GB
