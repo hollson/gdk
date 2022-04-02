@@ -1,7 +1,7 @@
 // Package rat:实验鼠
 package rat
 
-// Fibonacci 斐波那契数列(模拟一个耗时运算)
+// Fibonacci 斐波那契数列,模拟一个性能(耗时)运算
 //  Test Outs:
 //  Fibonacci(40) => 0.38s
 //  Fibonacci(41) => 0.61s

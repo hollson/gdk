@@ -2,27 +2,99 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
+// Package zero 类型缺省值
 package zero
 
+// 显式声明
 var (
-	True                = true        // (全局)变量零值，用于快捷取指，请勿改变变量值
-	False               = false       // (全局)变量零值，用于快捷取指，请勿改变变量值
-	Int                 = 0           // (全局)变量零值，用于快捷取指，请勿改变变量值
-	Int32       int32   = 0           // (全局)变量零值，用于快捷取指，请勿改变变量值
-	Int64       int64   = 0           // (全局)变量零值，用于快捷取指，请勿改变变量值
-	Float32     float32 = 0.0         // (全局)变量零值，用于快捷取指，请勿改变变量值
-	Float64             = 0.0         // (全局)变量零值，用于快捷取指，请勿改变变量值
-	String              = ""          // (全局)变量零值，用于快捷取指，请勿改变变量值
-	Struct              = struct{}{}  // (全局)变量零值，用于快捷取指，请勿改变变量值
-	ArrayInt            = [0]int{}    // (全局)变量零值，用于快捷取指，请勿改变变量值
-	ArrayInt32          = [0]int32{}  // (全局)变量零值，用于快捷取指，请勿改变变量值
-	ArrayInt64          = [0]int64{}  // (全局)变量零值，用于快捷取指，请勿改变变量值
-	ArrayString         = [0]string{} // (全局)变量零值，用于快捷取指，请勿改变变量值
+	_true         bool     = true
+	_false        bool     = false
+	_int          int      = 0
+	_int32        int32    = 0
+	_int64        int64    = 0
+	_float32      float32  = 0.0
+	_float64      float64  = 0.0
+	_string       string   = ""
+	_struct       struct{} = struct{}{}
+	_intArray     []int
+	_int32Array   []int32
+	_int64Array   []int64
+	_float32Array []float32
+	_float64Array []float64
+	_stringArray  []string
 )
 
-// usage
-// func test() {
-// 	var a *string = &String
-// 	var b *int64 = &Int64
-// 	println(a, b)
-// }
+// True 获取当前类型的零值指针
+func True() *bool {
+	return &_true
+}
+
+// False 获取当前类型的零值指针
+func False() *bool {
+	return &_false
+}
+
+// Int 获取当前类型的零值指针
+func Int() *int {
+	return &_int
+}
+
+// Int32 获取当前类型的零值指针
+func Int32() *int32 {
+	return &_int32
+}
+
+// Int64 获取当前类型的零值指针
+func Int64() *int64 {
+	return &_int64
+}
+
+// Float32 获取当前类型的零值指针
+func Float32() *float32 {
+	return &_float32
+}
+
+// Float64 获取当前类型的零值指针
+func Float64() *float64 {
+	return &_float64
+}
+
+// String 获取当前类型的零值指针
+func String() *string {
+	return &_string
+}
+
+// Struct 获取当前类型的零值指针
+func Struct() *struct{} {
+	return &_struct
+}
+
+// IntArray 获取当前类型的零值指针
+func IntArray() *[]int {
+	return &_intArray
+}
+
+// Int32Array 获取当前类型的零值指针
+func Int32Array() *[]int32 {
+	return &_int32Array
+}
+
+// Int64Array 获取当前类型的零值指针
+func Int64Array() *[]int64 {
+	return &_int64Array
+}
+
+// Float32Array 获取当前类型的零值指针
+func Float32Array() *[]float32 {
+	return &_float32Array
+}
+
+// Float64Array 获取当前类型的零值指针
+func Float64Array() *[]float64 {
+	return &_float64Array
+}
+
+// StringArray 获取当前类型的零值指针
+func StringArray() *[]string {
+	return &_stringArray
+}

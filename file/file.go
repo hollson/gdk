@@ -14,7 +14,6 @@ import (
 	"path/filepath"
 )
 
-// getFileSize get file size by path(B)
 func DirSize(path string) (int64, error) {
 	var size int64
 	err := filepath.Walk(path, func(_ string, info os.FileInfo, err error) error {
@@ -26,7 +25,6 @@ func DirSize(path string) (int64, error) {
 	return size, err
 }
 
-// getFileSize get file size by path(B)
 func FileSize(path string) int64 {
 	if !Exists(path) {
 		return 0
