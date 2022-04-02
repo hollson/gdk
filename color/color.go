@@ -2,13 +2,18 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
+// Package color Linux控制台输出字体渲染
 package color
+
+/*
+第三方库：https://github.com/gookit/color
+*/
 
 import (
 	"fmt"
 )
 
-// Color 颜色
+// FontColor Color 字体颜色
 type FontColor int
 
 // 前景色
@@ -23,11 +28,9 @@ const (
 	FontWhite                         // 37: 白色
 )
 
-// BackGroundColor
-
+// BackGroundColor 背景色
 type BackGroundColor int
 
-// 背景色
 const (
 	BackBlack   BackGroundColor = iota + 40 // 40: 黑色
 	BackRed                                 // 41: 红色
@@ -39,7 +42,7 @@ const (
 	BackWhite                               // 47: 白色
 )
 
-// Style 样式
+// Style 字体样式
 type Style int
 
 const (
