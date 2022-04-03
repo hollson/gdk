@@ -10,13 +10,13 @@ import (
 )
 
 func ExampleText() {
+	fmt.Println(Text("仅样式", Bold))
 	fmt.Println(Text("仅字体", FontRed))
 	fmt.Println(Text("仅背景", BackCyan))
-	fmt.Println(Text("仅样式", Bold)) // 粗体
 	fmt.Println(Text("字体+背景", FontRed, BackYellow))
-	fmt.Println(Text("字体+样式", Bold, FontBlue))
-	fmt.Println(Text("背景+样式", Bold, BackYellow))
-	fmt.Println(Text("字体+背景+样式", Bold, FontBlue, BackMagenta))
+	fmt.Println(Text("样式+字体", Bold, FontBlue))
+	fmt.Println(Text("样式+背景", Bold, BackYellow))
+	fmt.Println(Text("样式+字体+背景", Bold, FontBlue, BackMagenta))
 }
 
 // 测试样式
