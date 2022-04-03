@@ -2,51 +2,30 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
-// China Yuan(CNY)
+// Package money 货币单位/换算
 package money
 
-import "fmt"
+import (
+	"fmt"
+)
 
-// 人民币(单位：分)
-type CNY float64
+// CNY 人民币(单位：分)
+type CNY int64
 
 const (
 	F CNY = 1         // 分
 	J     = 10 * F    // 角
 	Y     = 10 * J    // 元
-	Q     = 1000 * Y  // 千
-	W     = 10 * Q    // 万
+	W     = 10000 * Y // 万
 	E     = 10000 * W // 亿
 )
 
-// 转换为带两位小数的元
-func (c CNY) Float64() float64 {
-	return float64(c)
-}
-
-// 格式化输出(四舍五入),不带单位
-func (c CNY) Single() string {
-	ret := ""
-	switch {
-	case c < J:
-		ret = fmt.Sprintf("%.2f", float64(c)/float64(F))
-	case c < Y:
-		ret = fmt.Sprintf("%.2f", float64(c)/float64(J))
-	case c < Q:
-		ret = fmt.Sprintf("%.2f", float64(c)/float64(Y))
-	case c < W:
-		ret = fmt.Sprintf("%.2f", float64(c)/float64(Q))
-	case c < E:
-		ret = fmt.Sprintf("%.2f", float64(c)/float64(W))
-	default:
-		ret = fmt.Sprintf("%.2f", float64(c)/float64(E))
-	}
-	return ret
-}
-
-// 格式化输出(四舍五入),带单位
-func (c CNY) String() string {
-	return fmt.Sprintf("%s%s", c.Single(), c.withUnit())
+// New 构造人民币对象
+//  y: 元
+//  j: 角
+//  f: 分
+func New(y, j, f CNY) CNY {
+	return y*Y + j*J + f*F
 }
 
 func (c CNY) withUnit() string {
@@ -55,13 +34,65 @@ func (c CNY) withUnit() string {
 		return "分"
 	case c < Y:
 		return "角"
-	case c < Q:
-		return "元"
 	case c < W:
-		return "千元"
+		return "元"
 	case c < E:
-		return "万元"
+		return "万"
 	default:
-		return "亿元"
+		return "亿"
 	}
 }
+
+func (c CNY) dump() string {
+	ret := ""
+	switch {
+	case c < J:
+		ret = fmt.Sprintf("%.2f", float64(c)/float64(F))
+	case c < Y:
+		ret = fmt.Sprintf("%.2f", float64(c)/float64(J))
+	case c < W:
+		ret = fmt.Sprintf("%.2f", float64(c)/float64(Y))
+	case c < E:
+		ret = fmt.Sprintf("%.2f", float64(c)/float64(W))
+	default:
+		ret = fmt.Sprintf("%.2f", float64(c)/float64(E))
+	}
+	return ret
+}
+
+//Deprecated:
+// Format 格式化输出
+//  todo 如：time.Format("2006-01-02")
+func (c CNY) Format() string {
+	return c.String()
+}
+
+func (c CNY) String() string {
+	return fmt.Sprintf("%s%s", c.dump(), c.withUnit())
+}
+
+// func (c CNY) Full() string {
+// 	sb := strings.Builder{}
+// 	if c >= E {
+// 		_, _ = fmt.Fprintf(&sb, "%d亿", c/E)
+// 		c %= E
+// 	}
+// 	if c >= W {
+// 		_, _ = fmt.Fprintf(&sb, "%d万", c/W)
+// 		c %= W
+// 	}
+// 	if c >= Y {
+// 		_, _ = fmt.Fprintf(&sb, "%d元", c/Y)
+// 		c %= Y
+// 	}
+//
+// 	if c >= J {
+// 		_, _ = fmt.Fprintf(&sb, "%d角", c/J)
+// 		c %= J
+// 	}
+//
+// 	if c >= F {
+// 		_, _ = fmt.Fprintf(&sb, "%d分", c/F)
+// 	}
+// 	return sb.String()
+// }

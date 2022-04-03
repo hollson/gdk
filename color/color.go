@@ -14,7 +14,7 @@ import (
 )
 
 // StyleOrColor 样式/颜色
-type StyleOrColor int
+type StyleOrColor uint8
 
 const (
 	Reset        StyleOrColor = 0 // 重置

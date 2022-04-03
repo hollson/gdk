@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 )
 
-// 将对象转换为Json字符串
+// Json 将对象转换为Json字符串
 func Json(o interface{}) string {
 	dump, err := json.Marshal(o)
 	if err != nil {
@@ -17,7 +17,7 @@ func Json(o interface{}) string {
 	return string(dump)
 }
 
-// 将对象转换为美化的Json字符串
+// JsonPretty 将对象转换为美化的Json字符串
 func JsonPretty(o interface{}) string {
 	dump, err := json.MarshalIndent(o, "", "\t")
 	if err != nil {

@@ -8,20 +8,20 @@ import (
 	"fmt"
 )
 
-// Size 字节大小
+// Size 内存大小(单位：字节)
 //  Reference：https://golang.org/doc/effective_go#constants
 type Size float64
 
 const (
 	_       = iota
-	KB Size = 1 << (10 * iota)
-	MB
-	GB
-	TB
-	PB
-	EB
-	ZB
-	YB
+	KB Size = 1 << (10 * iota) // 千字节
+	MB                         // 兆字节
+	GB                         // 吉字节/千兆
+	TB                         // 太字节
+	PB                         // 拍字节
+	EB                         // 艾字节
+	ZB                         // 泽字节
+	YB                         // 尧字节
 )
 
 func (b Size) String() string {
