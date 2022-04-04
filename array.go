@@ -20,7 +20,7 @@ func IsSlice(o interface{}) (val reflect.Value, ok bool) {
 	return
 }
 
-// 将对象切片转换为接口切片
+// Convert2AnyTypeSlice 将对象切片转换为接口切片
 //  如: AnyTypeSlice([]int{1,2,3}) => []interface{}{1,2,3}
 func Convert2AnyTypeSlice(slice interface{}) ([]interface{}, error) {
 	val, ok := IsSlice(slice)
