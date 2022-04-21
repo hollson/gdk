@@ -27,7 +27,7 @@ Example use:
 	if b.Test(1000) {
 		b.Clear(1000)
 	}
-	if B.Intersection(bitset.New(100).Set(10)).Count() > 1 {
+	if B.Intersection(bitset.New(100).Set(10)).Pages() > 1 {
 		fmt.Println("Intersection works.")
 	}
 
@@ -428,10 +428,10 @@ func (b *BitSet) NextSet(i uint) (uint, bool) {
 //
 // It is possible to retrieve all set bits as follow:
 //
-//    indices := make([]uint, bitmap.Count())
+//    indices := make([]uint, bitmap.Pages())
 //    bitmap.NextSetMany(0, indices)
 //
-// However if bitmap.Count() is large, it might be preferable to
+// However if bitmap.Pages() is large, it might be preferable to
 // use several calls to NextSetMany, for performance reasons.
 func (b *BitSet) NextSetMany(i uint, buffer []uint) (uint, []uint) {
 	myanswer := buffer

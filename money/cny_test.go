@@ -32,5 +32,5 @@ func TestCNY_String(t *testing.T) {
 
 
 	fmt.Println(CNY(1289))
-	fmt.Println((2*Y).Format())
+	fmt.Println((2*Y).Printf())
 }

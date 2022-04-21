@@ -28,6 +28,7 @@ func New(y, j, f CNY) CNY {
 	return y*Y + j*J + f*F
 }
 
+// 单位，与format配合使用
 func (c CNY) withUnit() string {
 	switch {
 	case c < J:
@@ -43,7 +44,7 @@ func (c CNY) withUnit() string {
 	}
 }
 
-func (c CNY) dump() string {
+func (c CNY) defaultFormat() string {
 	ret := ""
 	switch {
 	case c < J:
@@ -60,15 +61,13 @@ func (c CNY) dump() string {
 	return ret
 }
 
-//Deprecated:
-// Format 格式化输出
-//  todo 如：time.Format("2006-01-02")
-func (c CNY) Format() string {
+// Printf todo 如：money.Printf("￥.2d",100) => ￥100.00
+func (c CNY) Printf(format string) string {
 	return c.String()
 }
 
 func (c CNY) String() string {
-	return fmt.Sprintf("%s%s", c.dump(), c.withUnit())
+	return fmt.Sprintf("%s%s", c.defaultFormat(), c.withUnit())
 }
 
 // func (c CNY) Full() string {

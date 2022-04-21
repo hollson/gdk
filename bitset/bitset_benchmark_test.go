@@ -43,7 +43,7 @@ func BenchmarkSetExpand(b *testing.B) {
 	}
 }
 
-// go test -bench=Count
+// go test -bench=Pages
 func BenchmarkCount(b *testing.B) {
 	b.StopTimer()
 	s := New(100000)

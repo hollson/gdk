@@ -341,7 +341,7 @@ func TestCount(t *testing.T) {
 	for i := uint(0); i < tot; i++ {
 		sz := uint(v.Count())
 		if sz != i {
-			t.Errorf("Count reported as %d, but it should be %d", sz, i)
+			t.Errorf("Pages reported as %d, but it should be %d", sz, i)
 			checkLast = false
 			break
 		}
@@ -362,7 +362,7 @@ func TestCount2(t *testing.T) {
 	for i := uint(0); i < tot; i += 3 {
 		sz := uint(v.Count())
 		if sz != i/3 {
-			t.Errorf("Count reported as %d, but it should be %d", sz, i)
+			t.Errorf("Pages reported as %d, but it should be %d", sz, i)
 			break
 		}
 		v.Set(i)
@@ -409,7 +409,7 @@ func TestNullCount(t *testing.T) {
 	}()
 	cnt := v.Count()
 	if cnt != 0 {
-		t.Errorf("Count reported as %d, but it should be 0", cnt)
+		t.Errorf("Pages reported as %d, but it should be 0", cnt)
 	}
 }
 
