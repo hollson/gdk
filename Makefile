@@ -16,6 +16,13 @@ clean:
 	@echo "\033[31m ✅  清理完毕\033[0m";
 
 
+## build @编译/验证。
+.PHONY:build
+push:build
+	@git push #origin master
+	@echo "\033[0;31m ⬆️ Push完毕\033[0m"
+
+
 ## commit <msg>@提交Git如:make push [msg=<message>]。
 .PHONY:commit
 message:=$(if $(msg),$(msg),"rebuilded at $$(date '+%Y/%m/%d %H:%M:%S')")

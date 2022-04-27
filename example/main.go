@@ -7,10 +7,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/hollson/gdk/color"
+	"github.com/hollson/gdk"
 )
 
 func main() {
-	txt:=color.Text("你好呀",color.FontBlue,color.BackMagenta)
-	fmt.Println(txt)
+	// txt:=color.Text("你好呀",color.FontBlue,color.BackMagenta)
+	// fmt.Println(txt)
+	fmt.Println(gdk.T3(1 > 2, "a", "b"))
 }

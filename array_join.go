@@ -1,6 +1,7 @@
 // Copyright 2021 Hollson. All rights reserved.
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
+// 更多详情，请参考：https://github.com/hollson/gdk
 
 package gdk
 
@@ -10,8 +11,8 @@ import (
 	"strings"
 )
 
-// 将切片拼接成以splitter(默认逗号)分割等字符串
-//  如:
+// JoinByte 拼接切片
+//  splitter：拼接符（默认为逗号）
 func JoinByte(arr []byte, splitter ...string) string {
 	if len(arr) == 0 {
 		return ""
@@ -19,21 +20,22 @@ func JoinByte(arr []byte, splitter ...string) string {
 	if len(splitter) == 0 {
 		splitter = []string{","}
 	}
-
-	var b strings.Builder
-	length := len(arr)
+	var (
+		length = len(arr)
+		b      strings.Builder
+	)
 	b.Grow(length) // 预分配容量
-	for i := 0; i < length; i++ {
-		b.WriteString(strconv.Itoa(int(arr[i])))
-		if i < length-1 {
+
+	for k, v := range arr {
+		b.WriteByte(v)
+		if k < length-1 {
 			b.WriteString(splitter[0])
 		}
 	}
 	return b.String()
 }
 
-// 将切片拼接成以splitter(默认逗号)分割等字符串
-//  如:
+// JoinInt 将切片拼接成以splitter(默认逗号)分割等字符串
 func JoinInt(arr []int, splitter ...string) string {
 	if len(arr) == 0 {
 		return ""
@@ -42,12 +44,15 @@ func JoinInt(arr []int, splitter ...string) string {
 		splitter = []string{","}
 	}
 
-	var b strings.Builder
-	length := len(arr)
+	var (
+		length = len(arr)
+		b      strings.Builder
+	)
 	b.Grow(length) // 预分配容量
-	for i := 0; i < length; i++ {
-		b.WriteString(strconv.Itoa(int(arr[i])))
-		if i < length-1 {
+
+	for k, v := range arr {
+		b.WriteString(strconv.Itoa(v))
+		if k < length-1 {
 			b.WriteString(splitter[0])
 		}
 	}
@@ -63,12 +68,15 @@ func JoinInt32(arr []int32, splitter ...string) string {
 		splitter = []string{","}
 	}
 
-	var b strings.Builder
-	length := len(arr)
+	var (
+		length = len(arr)
+		b      strings.Builder
+	)
 	b.Grow(length) // 预分配容量
-	for i := 0; i < length; i++ {
-		b.WriteString(strconv.Itoa(int(arr[i])))
-		if i < length-1 {
+
+	for k, v := range arr {
+		b.WriteString(strconv.Itoa(int(v)))
+		if k < length-1 {
 			b.WriteString(splitter[0])
 		}
 	}
@@ -82,12 +90,16 @@ func JoinInt64(arr []int64, splitter ...string) string {
 	if len(splitter) == 0 {
 		splitter = []string{","}
 	}
-	var b strings.Builder
-	length := len(arr)
+
+	var (
+		length = len(arr)
+		b      strings.Builder
+	)
 	b.Grow(length) // 预分配容量
-	for i := 0; i < length; i++ {
-		b.WriteString(strconv.Itoa(int(arr[i])))
-		if i < length-1 {
+
+	for k, v := range arr {
+		b.WriteString(strconv.Itoa(int(v)))
+		if k < length-1 {
 			b.WriteString(splitter[0])
 		}
 	}
@@ -139,5 +151,11 @@ func SQLInInt32(items ...int32) (inSql string) {
 	for _, v := range items {
 		inSql = fmt.Sprintf("%s,%d", inSql, v)
 	}
+
 	return strings.TrimLeft(inSql, ",")
 }
+
+// func JoinFunc(items []interface{}) {
+//
+// 	strings.IndexFunc()
+// }

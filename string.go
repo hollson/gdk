@@ -13,7 +13,7 @@ import (
 
 const BLANK = ""
 
-// 修剪所有换行和空格，如：压缩整段格式化的SQL
+// TrimSpace 修剪所有换行和空格，如：压缩整段格式化的SQL
 func TrimSpace(str string) string {
 	if len(str) == 0 {
 		return ""
@@ -22,7 +22,7 @@ func TrimSpace(str string) string {
 	return strings.TrimSpace(reg.ReplaceAllString(str, " "))
 }
 
-// 转换为帕斯卡命名
+// Pascal 转换为帕斯卡命名
 //  如: userName => UserName
 //     user_name => UserName
 func Pascal(title string) string {
@@ -32,14 +32,14 @@ func Pascal(title string) string {
 	return strings.Join(arr, BLANK)
 }
 
-// 遍历并将集合元素转换为Title格式
+// RangeToTitle 遍历并将集合元素转换为Title格式
 func RangeToTitle(arr []string) {
 	for k, v := range arr {
 		arr[k] = strings.Title(v)
 	}
 }
 
-// 遍历处理集合成员
+// RangeStringsFunc 遍历处理集合成员
 func RangeStringsFunc(arr []string, f func(string) string) {
 	for k, v := range arr {
 		arr[k] = f(v)
@@ -58,7 +58,7 @@ func HasAny(raw string, sub ...string) bool {
 	return false
 }
 
-// 统计字符个数(汉字:1，字母:0.5)
+// GetChars 统计字符个数(汉字:1，字母:0.5)
 func GetChars(str string) int64 {
 	var count float64 = 0
 	for _, val := range str {

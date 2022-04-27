@@ -12,6 +12,9 @@ import (
 func TestTrimSpace(t *testing.T) {
 	fmt.Printf("[%s]\n", TrimSpace(`
 	select *   
+
+
+
   from  \n\t
 wherw \n 1=1
 order by \t\t\t\ id desc       `))
@@ -32,7 +35,6 @@ func TestPascal(t *testing.T) {
 	fmt.Println(Pascal("_user_name_"))
 	fmt.Println(Pascal("_user_name_99"))
 }
-
 
 func TestHasSub(t *testing.T) {
 	fmt.Println(HasAny("datetime", "date", "time")) // true
