@@ -5,10 +5,9 @@
 package gdk
 
 import (
-	"math"
 	"regexp"
 	"strings"
-	"unicode"
+	"unicode/utf8"
 )
 
 const BLANK = ""
@@ -46,40 +45,20 @@ func RangeStringsFunc(arr []string, f func(string) string) {
 	}
 }
 
-// raw中是否包含sub...中的任意子串
+// HasAny raw中是否包含sub...中的任意子串
 //  如: HasSub("datetime","date") => true
 //     HasSub("datetime","time") => true
-func HasAny(raw string, sub ...string) bool {
+func HasAny(src string, sub ...string) bool {
 	for _, v := range sub {
-		if strings.Contains(raw, v) {
+		if strings.Contains(src, v) {
 			return true
 		}
 	}
 	return false
 }
 
-// GetChars 统计字符个数(汉字:1，字母:0.5)
-func GetChars(str string) int64 {
-	var count float64 = 0
-	for _, val := range str {
-		if unicode.Is(unicode.Scripts["Han"], val) {
-			count += 1
-		} else {
-			count += 0.5
-		}
-	}
-	return int64(math.Ceil(count))
-}
-
-func GetStrLength(str string) float64 {
-	var total float64
-	reg := regexp.MustCompile("/·|，|。|《|》|‘|’|”|“|；|：|【|】|？|（|）|、/")
-	for _, r := range str {
-		if unicode.Is(unicode.Scripts["Han"], r) || reg.Match([]byte(string(r))) {
-			total = total + 1
-		} else {
-			total = total + 0.5
-		}
-	}
-	return math.Ceil(total)
+// CharCount 统计字符个数
+//  与javascript中的string.length一致
+func CharCount(str string) int {
+	return utf8.RuneCountInString(str)
 }

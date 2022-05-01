@@ -5,36 +5,36 @@ import (
 )
 
 // https://github.com/bits-and-blooms/bloom/blob/master/bloom.go
-const DEFAULT_SIZE = 2 << 24
+const DefaultSize = 2 << 24 // 2048576
 
 var seeds = []uint{7, 11, 13, 31, 37, 61}
 
-type BloomFilter struct {
-	Set   *bitset.BitSet
-	Funcs [6]SimpleHash
+type Filter struct {
+	Set  *bitset.BitSet
+	Func [6]SimpleHash
 }
 
-func NewBloomFilter() *BloomFilter {
-	bf := new(BloomFilter)
-	for i := 0; i < len(bf.Funcs); i++ {
-		bf.Funcs[i] = SimpleHash{DEFAULT_SIZE, seeds[i]}
+func NewFilter() *Filter {
+	bf := new(Filter)
+	for i := 0; i < len(bf.Func); i++ {
+		bf.Func[i] = SimpleHash{DefaultSize, seeds[i]}
 	}
-	bf.Set = bitset.New(DEFAULT_SIZE)
+	bf.Set = bitset.New(DefaultSize)
 	return bf
 }
 
-func (bf BloomFilter) Add(value string) {
-	for _, f := range bf.Funcs {
+func (bf Filter) Add(value string) {
+	for _, f := range bf.Func {
 		bf.Set.Set(f.hash(value))
 	}
 }
 
-func (bf BloomFilter) Contains(value string) bool {
+func (bf Filter) Contains(value string) bool {
 	if value == "" {
 		return false
 	}
 	ret := true
-	for _, f := range bf.Funcs {
+	for _, f := range bf.Func {
 		ret = ret && bf.Set.Test(f.hash(value))
 	}
 	return ret

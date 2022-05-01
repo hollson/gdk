@@ -2,12 +2,12 @@
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
+/*
+ 仅支持Linux，更过可参考https://github.com/gookit/color
+*/
+
 // Package color Linux控制台输出字体渲染
 package color
-
-/*
- 第三方参考：https://github.com/gookit/color
-*/
 
 import (
 	"fmt"

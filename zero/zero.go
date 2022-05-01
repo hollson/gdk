@@ -5,96 +5,92 @@
 // Package zero 类型缺省值
 package zero
 
-// 显式声明
-var (
-	_true         bool     = true
-	_false        bool     = false
-	_int          int      = 0
-	_int32        int32    = 0
-	_int64        int64    = 0
-	_float32      float32  = 0.0
-	_float64      float64  = 0.0
-	_string       string   = ""
-	_struct       struct{} = struct{}{}
-	_intArray     []int
-	_int32Array   []int32
-	_int64Array   []int64
-	_float32Array []float32
-	_float64Array []float64
-	_stringArray  []string
-)
-
-// True 获取当前类型的零值指针
+// True 获取零值指针
 func True() *bool {
-	return &_true
+	var x = true
+	return &x
 }
 
-// False 获取当前类型的零值指针
+// False 获取零值指针
 func False() *bool {
-	return &_false
+	var x = false
+	return &x
 }
 
-// Int 获取当前类型的零值指针
+// Int 获取零值指针
 func Int() *int {
-	return &_int
+	var x = 0
+	return &x
 }
 
-// Int32 获取当前类型的零值指针
+// Int32 获取零值指针
 func Int32() *int32 {
-	return &_int32
+	var x int32 = 0
+	return &x
 }
 
-// Int64 获取当前类型的零值指针
+// Int64 获取零值指针
 func Int64() *int64 {
-	return &_int64
+	var x int64 = 0
+	return &x
 }
 
-// Float32 获取当前类型的零值指针
+// Float32 获取零值指针
 func Float32() *float32 {
-	return &_float32
+	var x float32 = 0
+	return &x
 }
 
-// Float64 获取当前类型的零值指针
+// Float64 获取零值指针
 func Float64() *float64 {
-	return &_float64
+	var x float64 = 0
+	return &x
 }
 
-// String 获取当前类型的零值指针
+// String 获取零值指针
 func String() *string {
-	return &_string
+	var x string
+	return &x
 }
 
-// Struct 获取当前类型的零值指针
+// Struct 获取零值指针
+//  空结构体共享 runtime.zerobase
 func Struct() *struct{} {
-	return &_struct
+	return &struct{}{}
 }
 
-// IntArray 获取当前类型的零值指针
+// IntArray 获取零值指针
 func IntArray() *[]int {
-	return &_intArray
+	var x []int
+	return &x
 }
 
-// Int32Array 获取当前类型的零值指针
+// Int32Array 获取零值指针
 func Int32Array() *[]int32 {
-	return &_int32Array
+	var x []int32
+	return &x
 }
 
-// Int64Array 获取当前类型的零值指针
+// Int64Array 获取零值指针
 func Int64Array() *[]int64 {
-	return &_int64Array
+	var x []int64
+	return &x
 }
 
-// Float32Array 获取当前类型的零值指针
+// Float32Array 获取零值指针
 func Float32Array() *[]float32 {
-	return &_float32Array
+	var x []float32
+	return &x
 }
 
-// Float64Array 获取当前类型的零值指针
+// Float64Array 获取零值指针
 func Float64Array() *[]float64 {
-	return &_float64Array
+	var x []float64
+	return &x
 }
 
-// StringArray 获取当前类型的零值指针
+// StringArray 获取零值指针
 func StringArray() *[]string {
-	return &_stringArray
+	var x []string
+	return &x
 }

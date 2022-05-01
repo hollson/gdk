@@ -10,6 +10,8 @@ import (
 	"time"
 )
 
+// https://blog.csdn.net/Gusand/article/details/99083259
+
 type Optionals struct {
 	Sr string `json:"sr"`
 	So string `json:"so,omitempty"`

@@ -1,7 +1,3 @@
-// Copyright 2021 Hollson. All rights reserved.
-// Use of this source code is governed by a MIT style
-// license that can be found in the LICENSE file.
-
 package gdk
 
 import (
@@ -43,4 +39,30 @@ func TestHasSub(t *testing.T) {
 	fmt.Println(HasAny("datetime", "time", "xyz"))  // true
 	fmt.Println(HasAny("datetime", "xyz"))          // false
 	fmt.Println(HasAny("datetime", "xxx", "yyy"))   // false
+}
+
+func ExampleCharCount() {
+	str := "Hello, 世界"
+	fmt.Println("bytes =", len(str))
+	fmt.Println("runes =", CharCount(str))
+
+	// Output:
+	//
+	// bytes = 13
+	// runes = 9
+}
+
+// 遍历字符串
+func TestStringRange(t *testing.T) {
+	str := "Hello,世界"
+
+	for i := 0; i < len(str); i++ {
+		ch := str[i]
+		fmt.Printf(string(ch))
+	}
+
+	fmt.Println()
+	for _, ch1 := range str {
+		fmt.Printf(string(ch1))
+	}
 }
