@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/github/license/hollson/gdk)](https://github.com/hollson/gdk/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fhollson%2Fgdk)
 
-![gdk](./gdk2.svg?description=1&language=1&pattern=Floating%20Cogs&theme=Light)
+![gdk](./gdk.svg?description=1&language=1&pattern=Floating%20Cogs&theme=Light)
 
 ## Getting Started
 
@@ -18,10 +18,4 @@ go get -v github.com/hollson/gdk
 
 ## Examples
 
-Golang软件开发工具包
-
-https://github.com/visualfc/gotools
-https://github.com/rizalgowandy/gdk
-https://github.com/researchlab/gdk
-https://github.com/felberj/gotools
 

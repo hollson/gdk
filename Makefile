@@ -60,4 +60,9 @@ help:Makefile
 	@echo "Available Commands:"
 	@sed -n "s/^##//p" $< | column -t -s '@' |grep --color=auto "^[[:space:]][a-z]\+[[:space:]]"
 	@echo
-	@echo "For more to see https://makefiletutorial.com/"
+	@echo "For more to see https://github.com/hollson"
+
+
+# helps:
+# https://shields.io/
+# https://makefiletutorial.com/
