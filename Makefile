@@ -1,6 +1,6 @@
 all:help
 
-## clean@清理编译、日志和缓存等数据。
+## clean@清理编译、日志和缓存等
 .PHONY:clean
 clean:
 	@rm -rf ./bin;
@@ -16,14 +16,14 @@ clean:
 	@echo "\033[31m ✅  清理完毕\033[0m";
 
 
-## build @编译/验证。
-.PHONY:build
-push:build
-	@git push #origin master
-	@echo "\033[0;31m ⬆️ Push完毕\033[0m"
+## build @编译
+.PHONY:
+build:
+	@go build
+	@echo "\033[31m 🚀  编译完毕\033[0m";
 
 
-## commit <msg>@提交Git如:make push [msg=<message>]。
+## commit <msg>@Git提交，如:make push [msg=<message>]
 .PHONY:commit
 message:=$(if $(msg),$(msg),"rebuilded at $$(date '+%Y/%m/%d %H:%M:%S')")
 commit:
@@ -33,26 +33,26 @@ commit:
 	@echo "\033[0;31m 💿 Commit完毕\033[0m"
 
 
-## push <msg>@提交并推送到Git仓库，如:make push [msg=<message>]。
+## push <msg>@Git提交并推送，如:make push [msg=<message>]
 .PHONY:push
 push:commit
 	@git push #origin master
 	@echo "\033[0;31m ⬆️ Push完毕\033[0m"
 
 
-## update@更新Git和Submodule。
+## update@更新Git和Submodule
 .PHONY:update
 update:
 	@git submodule update --init --recursive;
 
 
-## test@执行项目测试。
+## test@执行项目测试
 .PHONY:test
 test:
 	@go test;
 
 
-## help@查看make帮助。
+## help@查看make帮助
 .PHONY:help
 help:Makefile
 	@echo "Usage:\n  make [command]"
