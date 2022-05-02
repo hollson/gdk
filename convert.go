@@ -12,6 +12,7 @@ import (
 // 将字符串转换为int64，转换失败时返回0
 func ToInt(n string) (ret int) {
 	ret, err := strconv.Atoi(n)
+	
 	if err != nil {
 		return 0
 	}
@@ -30,7 +31,7 @@ func ToInt64(num string) int64 {
 	}
 }
 
-// 将字符串转换为bool类型，参数错误时返回false
+// ToBool 将字符串转换为bool类型，参数错误时返回false
 //  1,t,T,TRUE, true, True  => true
 //  0,f,F,FALSE,false,False => false
 func ToBool(b string) bool {

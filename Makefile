@@ -1,5 +1,19 @@
 all:help
 
+## build@编译
+.PHONY:build
+build:
+	@go vet
+	@go build
+	@echo "\033[31m 🚀  编译完毕\033[0m";
+
+
+## linter@代码检查
+.PHONY:linter
+linter:
+	@golangci-lint run -c .golangci.yaml || exit 1
+
+
 ## clean@清理编译、日志和缓存等
 .PHONY:clean
 clean:
@@ -14,13 +28,6 @@ clean:
 	@rm -rf ./temp;
 	@rm -rf ./vendor/*;
 	@echo "\033[31m ✅  清理完毕\033[0m";
-
-
-## build @编译
-.PHONY:
-build:
-	@go build
-	@echo "\033[31m 🚀  编译完毕\033[0m";
 
 
 ## commit <msg>@Git提交，如:make push [msg=<message>]
@@ -46,10 +53,11 @@ update:
 	@git submodule update --init --recursive;
 
 
-## test@执行项目测试
+## test@单元测试
 .PHONY:test
 test:
 	@go test;
+	@go test -v -failfast -race -count=1 ./... >/dev/null || exit 1;
 
 
 ## help@查看make帮助
@@ -60,9 +68,9 @@ help:Makefile
 	@echo "Available Commands:"
 	@sed -n "s/^##//p" $< | column -t -s '@' |grep --color=auto "^[[:space:]][a-z]\+[[:space:]]"
 	@echo
-	@echo "For more to see https://github.com/hollson"
+	@echo "For more to see https://github.com/hollson\n"
 
 
-# helps:
+# Reference:
 # https://shields.io/
 # https://makefiletutorial.com/

@@ -9,8 +9,6 @@ import (
 	"testing"
 )
 
-
-
 func TestCNY_String(t *testing.T) {
 	// 构造
 	fmt.Println(New(0, 0, 9))
@@ -30,7 +28,5 @@ func TestCNY_String(t *testing.T) {
 	fmt.Println(2222*W + 3456*Y + 9*J + 9*F)
 	fmt.Println(1*E + 2222*W + 3456*Y + 9*J + 9*F)
 
-
 	fmt.Println(CNY(1289))
-	fmt.Println((2*Y).Printf())
 }

@@ -1,12 +1,18 @@
 package gdk
 
 import (
+	"errors"
 	"time"
 )
 
 const (
 	DefaultDateFormat = "2006-01-02"
 	DefaultTimeFormat = "2006-01-02 15:04:05"
+)
+
+var (
+	errUnsupportedInputType = errors.New("unsupported input type")
+	errInvalidFormatRFC3339 = errors.New("must comply with RFC3339")
 )
 
 // JsonTime 自定义Json成员类型
@@ -56,4 +62,25 @@ func ParseDate(s string) time.Time {
 		return time.Unix(0, 0)
 	}
 	return ret
+}
+
+// RFC3339 validates input is compliance with RFC3339
+func RFC3339(value interface{}) error {
+	switch v := value.(type) {
+	case string:
+		if v == "" {
+			return nil
+		}
+
+		_, err := time.Parse(time.RFC3339, v)
+		if err != nil {
+			return errInvalidFormatRFC3339
+		}
+		return nil
+
+	case time.Time, *time.Time:
+		return nil
+	}
+
+	return errUnsupportedInputType
 }
