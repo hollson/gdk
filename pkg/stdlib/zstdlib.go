@@ -2917,7 +2917,7 @@ var Symbols = map[string]string{
 	"mail.AddressParser":                            "net/mail",
 	"mail.ErrHeaderNotPresent":                      "net/mail",
 	"mail.Header":                                   "net/mail",
-	"mail.Message":                                  "net/mail",
+	"mail.Msg":                                      "net/mail",
 	"mail.ParseAddress":                             "net/mail",
 	"mail.ParseAddressList":                         "net/mail",
 	"mail.ParseDate":                                "net/mail",

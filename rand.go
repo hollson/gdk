@@ -54,9 +54,9 @@ func RandSequence(n int) string {
 	return time.Now().Format("20060102150405") + RandNumStr(n)
 }
 
-// RandScopeInt 生成m到n以内的随机数，包含m和n
+// RandScopeInt 生成m到n以内的随机数，左闭右开区间[m,n)
 func RandScopeInt(m, n int) int {
-	return _rand.Intn(n-m+1) + m
+	return _rand.Intn(n-m) + m
 }
 
 // RandInt 生成n以内的随机数
