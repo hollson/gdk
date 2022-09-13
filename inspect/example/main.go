@@ -5,21 +5,6 @@ import (
 	"runtime"
 )
 
-/*
-参考Docker：
-$ docker version
-Client:
-  Cloud integration: v1.0.22
-  Version:           20.10.12
-  API version:       1.41
-  Go version:        go1.16.12
-  Git commit:        e91ed57
-  Built:             Mon Dec 13 11:46:56 2021
-  OS/Arch:           darwin/amd64
-  Context:           default
-  Experimental:      true
-*/
-
 var (
 	version   string
 	gitCommit string // Git提交: git rev-parse --short HEAD
@@ -35,6 +20,10 @@ go run  -ldflags \
   main.go
 */
 func main() {
+	fmt.Println(runtime.Version())
+	fmt.Println(runtime.GOOS)
+	fmt.Println(runtime.GOARCH)
+
 	fmt.Printf("\n版本信息: \n")
 	fmt.Printf("Version: \t%s\n" +
 		"Git commit: \t%s\n" +
