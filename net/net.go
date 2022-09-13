@@ -103,3 +103,8 @@ func OuterIPWithProxy(proxyUrl string) (net.IP, error) {
 	}
 	return ip, nil
 }
+
+// 将IP转换成int32或int64类型
+func IPCode(ip net.IP) int {
+	return 1
+}
