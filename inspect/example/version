@@ -1,0 +1,13 @@
+Build Info:
+  App Name:     awesome
+  Version:      v1.0.0
+  OS/Arch:      amd64
+  Go version:   go1.17.8
+  GOOS:         darwin
+  Git Branch:   origin/dev
+  Git Commit:   fedc48b
+  Git Author:   hollson
+  Git Tag:      list
+  Machine:      shs
+  Environment:  develop
+  Built:        2022-12-01 15:04:05
