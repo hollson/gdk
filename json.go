@@ -19,7 +19,7 @@ func Json(o interface{}) string {
 
 // JsonPretty 将对象转换为美化的Json字符串
 func JsonPretty(o interface{}) string {
-	dump, err := json.MarshalIndent(o, "", "\t")
+	dump, err := json.MarshalIndent(o, "", "  ")
 	if err != nil {
 		return err.Error()
 	}

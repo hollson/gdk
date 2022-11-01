@@ -2,32 +2,34 @@ package main
 
 import (
 	"fmt"
-	"runtime"
+
+	"github.com/hollson/gdk/inspect"
 )
 
 var (
-	version   string
-	gitCommit string // Git提交: git rev-parse --short HEAD
-	built     string // 编译时间: date "+%Y-%m-%d %H:%M:%S"
+	name    string
+	version string
 )
 
 /*
-运行:
-go run  -ldflags \
-   "-X 'main.version=v1.0.0'
-   -X 'main.built=$(date "+%Y-%m-%d %H:%M:%S")'
-   -X 'main.gitCommit=$(git rev-parse --short HEAD)'" \
+演示示例：
+ 构建:
+ go build -ldflags \
+ "-X 'main.name=example'
+  -X 'main.version=V1.0.0'
+  -X 'github.com/hollson/gdk/inspect.built=$(date "+%Y-%m-%d %H:%M:%S")'
+  -X 'github.com/hollson/gdk/inspect.branch=$(git rev-parse --abbrev-ref @{u})'" \
+  -o ./example
+
+ 运行:
+ go run -ldflags \
+ "-X 'main.name=example'
+  -X 'main.version=V1.0.0'
+  -X 'github.com/hollson/gdk/inspect.built=$(date "+%Y-%m-%d %H:%M:%S")'
+  -X 'github.com/hollson/gdk/inspect.branch=$(git rev-parse --abbrev-ref @{u})'" \
   main.go
 */
 func main() {
-	fmt.Println(runtime.Version())
-	fmt.Println(runtime.GOOS)
-	fmt.Println(runtime.GOARCH)
-
-	fmt.Printf("\n版本信息: \n")
-	fmt.Printf("Version: \t%s\n" +
-		"Git commit: \t%s\n" +
-		"OS/Arch: \t%s\n" +
-		"Built: \t%s\n",
-		version,gitCommit,runtime.GOARCH,built)
+	fmt.Printf("%s_%s\n\n", name, version)
+	fmt.Println(inspect.Info().Json())
 }
