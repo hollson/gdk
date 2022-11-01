@@ -14,8 +14,8 @@ import (
 )
 
 var (
-	name        string
-	version     string
+	name        string = "example"
+	version     string = "v0.0.1"
 	osArch      string
 	goVersion   string
 	goos        string
@@ -42,18 +42,18 @@ func init() {
 
 // https://www.cnblogs.com/ucas123/p/14186171.html
 type inspector struct {
-	Name        string `json:"name,omitempty"`        // App名称 	 "Awesome"
-	Version     string `json:"version,omitempty"`     // 应用版本 	 "v1.0.0"
-	OSArch      string `json:"os_arch"`               // 系统架构 	 runtime.GOARCH
-	GoVersion   string `json:"go_version"`            // Go版本 	 runtime.Version()
-	Goos        string `json:"goos"`                  // Go版本 	 runtime.GOOS
-	Branch      string `json:"branch,omitempty"`      // Git分支 	 git rev-parse --abbrev-ref @{u}
-	Commit      string `json:"commit,omitempty"`      // Git提交 	 git rev-parse [--short] HEAD
-	Author      string `json:"author,omitempty"`      // Git用户名  git config user.name
-	Tag         string `json:"tag,omitempty"`         // Git最近tag  git describe --tags --abbrev=0
-	Machine     string `json:"machine"`               // 主机名称 	 bash hostname
-	Environment string `json:"environment,omitempty"` // 运行环境 	 upper(${Name})_VERSION"
-	Built       string `json:"built,omitempty"`       // 构建时间 	 date "+%Y-%m-%d %H:%M:%S"
+	Name        string `json:"name"`        // App名称 	 "Awesome"
+	Version     string `json:"version"`     // 应用版本 	 "v1.0.0"
+	OSArch      string `json:"os_arch"`     // 系统架构 	 runtime.GOARCH
+	GoVersion   string `json:"go_version"`  // Go版本 	 runtime.Version()
+	Goos        string `json:"goos"`        // Go版本 	 runtime.GOOS
+	Branch      string `json:"branch"`      // Git分支 	 git rev-parse --abbrev-ref @{u}
+	Commit      string `json:"commit"`      // Git提交 	 git rev-parse [--short] HEAD
+	Author      string `json:"author"`      // Git用户名  git config user.name
+	Tag         string `json:"tag"`         // Git最近tag  git describe --tags --abbrev=0
+	Machine     string `json:"machine"`     // 主机名称 	 bash hostname
+	Environment string `json:"environment"` // 运行环境 	 upper(${Name})_VERSION"
+	Built       string `json:"built"`       // 构建时间 	 date "+%Y-%m-%d %H:%M:%S"
 }
 
 func (i *inspector) String() string {
@@ -85,15 +85,35 @@ Built: %s`
 		built)
 }
 
+// Json Json格式化
 func (i *inspector) Json() string {
 	return gdk.JsonPretty(i)
 }
 
 /*
 Info 检查应用编译信息
- go run -ldflags \
- "-X 'github.com/hollson/gdk/inspect.name=example'
-  -X 'github.com/hollson/gdk/inspect.version=V1.0.0'
+ 调用示例:
+ fmt.Println(inspect.Info().Json())
+ # output:
+ {
+   "name": "awesome",
+   "version": "v1.0.0",
+   "os_arch": "amd64",
+   "go_version": "go1.17.8",
+   "goos": "darwin",
+   "branch": "origin/dev",
+   "commit": "e1acd28",
+   "author": "hollson",
+   "tag": "list",
+   "machine": "shs",
+   "environment": "develop",
+   "built": "2022-11-01 14:58:50"
+ }
+
+ 运行示例:
+ $ go run -ldflags \
+ "-X 'github.com/hollson/gdk/inspect.name=awesome'
+  -X 'github.com/hollson/gdk/inspect.version=v1.0.0'
   -X 'github.com/hollson/gdk/inspect.branch=$(git rev-parse --abbrev-ref @{u})'
   -X 'github.com/hollson/gdk/inspect.commit=$(git rev-parse --short HEAD)'
   -X 'github.com/hollson/gdk/inspect.author=$(git config user.name)'
@@ -103,7 +123,7 @@ Info 检查应用编译信息
   -X 'github.com/hollson/gdk/inspect.built=$(date "+%Y-%m-%d %H:%M:%S")'" \
   main.go
 
- 参考Docker命令：
+ 参考命令：
  $ docker version
    Client:
     Cloud integration: v1.0.22

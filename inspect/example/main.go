@@ -7,8 +7,8 @@ import (
 )
 
 var (
-	name    string
-	version string
+	name    string="test"
+	version string="v1.0"
 )
 
 /*
