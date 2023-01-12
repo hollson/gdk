@@ -34,6 +34,15 @@ var (
   main.go
 */
 func main() {
+	// 项目私有元信息
 	fmt.Printf("%s_%s\n\n", name, version)
+	fmt.Println()
+
+	// 通用编译信息
+	fmt.Println("文本格式：")
 	fmt.Println(inspect.Info())
+	fmt.Println()
+
+	fmt.Println("Json格式：")
+	fmt.Println(inspect.Info().Json())
 }

@@ -41,6 +41,8 @@ func init() {
 }
 
 // https://www.cnblogs.com/ucas123/p/14186171.html
+// https://blog.51cto.com/cwind/654745
+// https://blog.csdn.net/shelutai/article/details/127392916
 // http://blog.champbay.com/2019/11/26/ldflags%E5%9C%A8golang%E7%BC%96%E8%AF%91%E4%B8%AD%E7%9A%842%E4%B8%AA%E4%BD%9C%E7%94%A8/
 type inspector struct {
 	Name        string `json:"name"`        // App名称: "Awesome"
