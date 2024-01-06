@@ -145,9 +145,9 @@ func (u *UUID) decodeBraced(t []byte) (err error) {
 func (u *UUID) decodeURN(t []byte) (err error) {
 	total := len(t)
 
-	urn_uuid_prefix := t[:9]
+	urnUuidPrefix := t[:9]
 
-	if !bytes.Equal(urn_uuid_prefix, urnPrefix) {
+	if !bytes.Equal(urnUuidPrefix, urnPrefix) {
 		return fmt.Errorf("uuid: incorrect UUID format: %s", t)
 	}
 

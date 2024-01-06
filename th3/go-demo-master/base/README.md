@@ -1,0 +1,30 @@
+# Go语言内部库使用
+
+- [ast](ast): ast语法树使用
+- [cgo](cgo): cgo使用
+- [chan](chan): chan使用
+- [cond](cond): 条件变量
+- [context](context): 上下文使用详解
+- [csv](csv): csv文件操作
+- [defer](defer): 巧用defer
+- [embed](embed): 内嵌资源使用
+- [file](file)：Go操作文件
+- [flag](flag)：读取运行时参数
+- [goroutine](goroutine)：协程池(pool)、错误组(errorgroup)、合并并发请求(singleflight)、循环栅栏(cyclicbarrier)
+- [http](http)：http相关操作
+- [json](json)：json相关操作
+- [mail](mail): Go发送邮件
+- [net](net)：网络相关操作（写一个简单的聊天室）
+- [reflect](reflect): Go反射相关操作
+- [regexp](regexp): Go正则表达式操作
+- [rpc](rpc): Go使用rpc进行远程服务调用
+- [runtime](runtime): Go runtime包使用
+- [semaphore](semaphore): 信号量
+- [shell](shell): Go执行shell命令
+- [sort](sort): Go切片排序
+- [string](string): Go字符串操作
+- [sync](sync): Go并发相关包使用
+- [template](template): 模板用法
+- [time](time): 时间操作
+- [xml](xml): xml操作
+- [zip](zip): 压缩解压文件

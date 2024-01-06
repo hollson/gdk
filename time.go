@@ -6,13 +6,13 @@ import (
 )
 
 const (
-	DefaultDateFormat = "2006-01-02"
-	DefaultTimeFormat = "2006-01-02 15:04:05"
+	DefaultDateLayout = "2006-01-02"
+	DefaultTimeLayout = "2006-01-02 15:04:05"
 )
 
 var (
-	errUnsupportedInputType = errors.New("unsupported input type")
-	errInvalidFormatRFC3339 = errors.New("must comply with RFC3339")
+	ErrUnsupportedInputType = errors.New("unsupported input type")
+	ErrInvalidFormatRFC3339 = errors.New("must comply with RFC3339")
 )
 
 // JsonTime 自定义Json成员类型
@@ -46,7 +46,7 @@ func Time1970() time.Time {
 //  将"2006-01-02 15:04:05"格式的字符串转换为时间. 参数错误时返回 1970-01-01(08:00:00GMT).
 func ParseTime(s string) time.Time {
 	local, _ := time.LoadLocation("Asia/Shanghai")
-	ret, err := time.ParseInLocation(DefaultTimeFormat, s, local)
+	ret, err := time.ParseInLocation(DefaultTimeLayout, s, local)
 	if err != nil {
 		return time.Unix(0, 0)
 	}
@@ -57,7 +57,7 @@ func ParseTime(s string) time.Time {
 //  将"2006-01-02"格式的字符串转换为时间. 参数错误时返回 1970-01-01(08:00:00GMT).
 func ParseDate(s string) time.Time {
 	local, _ := time.LoadLocation("Asia/Shanghai")
-	ret, err := time.ParseInLocation(DefaultDateFormat, s, local)
+	ret, err := time.ParseInLocation(DefaultDateLayout, s, local)
 	if err != nil {
 		return time.Unix(0, 0)
 	}
@@ -71,16 +71,13 @@ func RFC3339(value interface{}) error {
 		if v == "" {
 			return nil
 		}
-
 		_, err := time.Parse(time.RFC3339, v)
 		if err != nil {
-			return errInvalidFormatRFC3339
+			return ErrInvalidFormatRFC3339
 		}
 		return nil
-
 	case time.Time, *time.Time:
 		return nil
 	}
-
-	return errUnsupportedInputType
+	return ErrUnsupportedInputType
 }

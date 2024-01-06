@@ -34,7 +34,7 @@ func TestRandSequence(t *testing.T) {
 }
 
 func TestRandScopeInt(t *testing.T) {
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 100; i++ {
 		fmt.Println(RandScopeInt(0, 10))
 	}
 
