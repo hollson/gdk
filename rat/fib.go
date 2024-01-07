@@ -16,12 +16,12 @@ package rat
 //  Fibonacci(50) => 45.11s
 //  Fibonacci(51) => 73.62s
 //  Fibonacci(52) => 118.23s
-func Fibonacci(num int) int {
-	if num < 1 {
+func Fibonacci(n int) int {
+	if n < 0 {
 		return 0
 	}
-	if num < 3 {
-		return 1
+	if n < 2 {
+		return n
 	}
-	return Fibonacci(num-1) + Fibonacci(num-2)
+	return Fibonacci(n-1) + Fibonacci(n-2)
 }

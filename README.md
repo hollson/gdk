@@ -17,6 +17,13 @@ A collection of libraries to speed your Go development.
 go get -v github.com/hollson/gdk
 ```
 
-## Examples
+```shell
+go tool dist list -json
+```
+
+http://github.com/gookit/goutil
+https://github.com/jinzhu/copier
+github.com/mitchellh/mapstructure
+
 
 
