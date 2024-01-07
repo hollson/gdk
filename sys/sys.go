@@ -11,10 +11,3 @@ func T3(b bool, x, y any) any {
 	}
 	return y
 }
-
-//go:generate go tool dist list -json
-func OS() {
-
-}
-
-// 操作系统类型

@@ -48,9 +48,7 @@ func ReplaceAllString(pattern, input, repl string) (string, error) {
 		if err != nil {
 			return input, err
 		}
-
 		return newRegex.ReplaceAllString(input, repl), nil
 	}
-
 	return (regex).(*regexp.Regexp).ReplaceAllString(input, repl), nil
 }

@@ -9,7 +9,8 @@ import (
 )
 
 // Size 内存大小(单位：字节)
-//  Reference：https://golang.org/doc/effective_go#constants
+//
+//	Reference：https://golang.org/doc/effective_go#constants
 type Size float64
 
 const (

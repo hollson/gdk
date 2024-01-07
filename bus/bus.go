@@ -17,9 +17,9 @@ type MessageBus interface {
 	Publish(topic string, args ...interface{})
 	// Close unsubscribe all handlers from given topic
 	Close(topic string)
-	// Subscribe subscribes to the given topic
+	// Subscribe to the given topic
 	Subscribe(topic string, fn interface{}) error
-	// Unsubscribe unsubscribe handler from the given topic
+	// Unsubscribe  handler from the given topic
 	Unsubscribe(topic string, fn interface{}) error
 }
 
